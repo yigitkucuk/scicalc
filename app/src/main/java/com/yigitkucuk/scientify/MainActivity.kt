@@ -29,12 +29,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateText(strToAdd: String) {
-        val oldStr = display.text.toString()
+
         val cursorPs = display.selectionStart
-        val leftStr = oldStr.substring(0, cursorPs)
-        val rightStr = oldStr.substring(cursorPs)
-        display.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
+
+        val previousString = display.text.toString()
+        val leftString = previousString.substring(0, cursorPs)
+        val rightString = previousString.substring(cursorPs)
+
+        display.setText(String.format("%s %s %s", leftString, strToAdd, rightString))
         display.setSelection(cursorPs + strToAdd.length)
+
     }
 
     fun zeroButton(v: View) {
@@ -184,8 +188,9 @@ class MainActivity : AppCompatActivity() {
 
     fun backspaceButton(v: View) {
         val cursorPos = display.selectionStart
-        val textLen = display.text.length
-        if (cursorPos != 0 && textLen != 0) {
+        val textLength = display.text.length
+
+        if (cursorPos != 0 && textLength != 0) {
             val selection = display.text as SpannableStringBuilder
             selection.replace(cursorPos - 1, cursorPos, "")
             display.text = selection
@@ -194,11 +199,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun rotateButton(v: View) {
-        requestedOrientation = if (isPortrait) {
-            ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-        } else {
-            ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
-        }
-        isPortrait = !isPortrait
+        requestedOrientation =
+            if (isPortrait) {
+                ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+            } else {
+                ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
+            }
+            isPortrait = !isPortrait
     }
 }

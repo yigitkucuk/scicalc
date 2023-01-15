@@ -5,10 +5,10 @@
     </style>
 
     <style name="button_style">
-        <item name="cornerSizeTopRight">45%</item>
-        <item name="cornerSizeTopLeft">45%</item>
-        <item name="cornerSizeBottomRight">45%</item>
-        <item name="cornerSizeBottomLeft">45%</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeTopLeft">50%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+        <item name="cornerSizeBottomLeft">50%</item>
     </style>
 
 </resources>
