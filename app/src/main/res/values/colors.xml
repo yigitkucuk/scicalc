@@ -8,11 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!--add color-->
-    <color name="yellows">#FF9800</color>
-    <color name="blacks">#232222</color>
-    <color name="yellow">#FFF48E</color>
-    <color name="red">#FF0015</color>
-    <color name="green">#12AC39</color>
+    <color name="non_predefined_pink">#FF9898</color>
+    <color name="non_predefined_black">#232222</color>
+    <color name="non_predefined_yellow">#FFF48E</color>
+    <color name="non_predefined_red">#FF1800</color>
+    <color name="non_predefined_turquoise">#12ACAC</color>
 
 </resources>

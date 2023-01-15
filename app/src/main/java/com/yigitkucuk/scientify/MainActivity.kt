@@ -1,4 +1,4 @@
-package com.malkinfo.scientifccalcultor
+package com.yigitkucuk.scientify
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -12,83 +12,100 @@ import org.mariuszgromada.math.mxparser.Expression
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var previousCal:TextView
-    private lateinit var display:EditText
-
-    var isPortrait = true
+    private lateinit var previousCal: TextView
+    private lateinit var display: EditText
+    private var isPortrait = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        previousCal = findViewById(R.id.previCal)
-        display = findViewById(R.id.display)
+        previousCal = findViewById(R.id.previous_call)
+        display = findViewById(R.id.current_call)
         display.showSoftInputOnFocus = false
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
     }
 
-    private fun updateText(strToAdd:String){
-
+    private fun updateText(strToAdd: String) {
         val oldStr = display.text.toString()
         val cursorPs = display.selectionStart
-        val leftStr = oldStr.substring(0,cursorPs)
+        val leftStr = oldStr.substring(0, cursorPs)
         val rightStr = oldStr.substring(cursorPs)
-        display.setText(String.format("%s%s%s",leftStr,strToAdd,rightStr))
+        display.setText(String.format("%s%s%s", leftStr, strToAdd, rightStr))
         display.setSelection(cursorPs + strToAdd.length)
     }
-    fun zeroBtn(v:View){
+
+    fun zeroButton(v: View) {
         updateText(resources.getString(R.string.zeroText))
     }
-    fun oneBtn(v:View){
+
+    fun oneButton(v: View) {
         updateText(resources.getString(R.string.oneText))
     }
-    fun twoBtn(v:View){
+
+    fun twoButton(v: View) {
         updateText(resources.getString(R.string.twoText))
     }
-    fun threeBtn(v:View){
+
+    fun threeButton(v: View) {
         updateText(resources.getString(R.string.threeText))
     }
-    fun foureBtn(v:View){
+
+    fun fourButton(v: View) {
         updateText(resources.getString(R.string.fourText))
     }
-    fun fiveBtn(v:View){
+
+    fun fiveButton(v: View) {
         updateText(resources.getString(R.string.fiveText))
     }
-    fun sixBtn(v:View){
+
+    fun sixButton(v: View) {
         updateText(resources.getString(R.string.sixText))
     }
-    fun sevenBtn(v:View){
+
+    fun sevenButton(v: View) {
         updateText(resources.getString(R.string.sevenText))
     }
-    fun eightBtn(v:View){
+
+    fun eightButton(v: View) {
         updateText(resources.getString(R.string.eightText))
     }
-    fun nineBtn(v:View){
+
+    fun nineButton(v: View) {
         updateText(resources.getString(R.string.nineText))
     }
-    fun parOpenBtn(v:View){
+
+    fun openParenthesesButton(v: View) {
         updateText(resources.getString(R.string.parenthesesOpenText))
     }
-    fun parcloseBtn(v:View){
+
+    fun closeParenthesesButton(v: View) {
         updateText(resources.getString(R.string.parenthesesCloseText))
     }
-    fun divideBtn(v:View){
+
+    fun divideButton(v: View) {
         updateText(resources.getString(R.string.divideText))
     }
-    fun multiplyBtn(v:View){
+
+    fun multiplyButton(v: View) {
         updateText(resources.getString(R.string.multiplyText))
     }
-    fun subtractBtn(v:View){
+
+    fun subtractButton(v: View) {
         updateText(resources.getString(R.string.subtractText))
     }
 
-    fun decimalBtn(v:View){
+    fun decimalButton(v: View) {
         updateText(resources.getString(R.string.decimalText))
     }
-    fun addBtn(v:View){
+
+    fun addButton(v: View) {
         updateText(resources.getString(R.string.addText))
     }
-    fun equalsBtn(v:View){
+
+    fun equalsButton(v: View) {
 
         var userExp = display.text.toString()
         previousCal.text = userExp
@@ -98,80 +115,90 @@ class MainActivity : AppCompatActivity() {
         val result = exp.calculate().toString()
         display.setText(result)
         display.setSelection(result.length)
-
-
     }
-    fun clearBtn(v:View){
+
+    fun clearButton(v: View) {
         display.setText("")
         previousCal.text = ""
-
     }
-    fun trigSinBtn(v:View){
+
+    fun sinButton(v: View) {
         updateText("sin(")
     }
-    fun trigCosBtn(v:View){
+
+    fun cosButton(v: View) {
         updateText("cos(")
     }
-    fun trigtanBtn(v:View){
+
+    fun tanButton(v: View) {
         updateText("tan(")
     }
-    fun trigArcSinBtn(v:View){
+
+    fun arcsinButton(v: View) {
         updateText("arcsin(")
     }
-    fun trigArcCosBtn(v:View){
+
+    fun arccosButton(v: View) {
         updateText("arccos(")
     }
-    fun trigArcTanBtn(v:View){
+
+    fun arctanButton(v: View) {
         updateText("arctan(")
     }
-    fun logBtn(v:View){
+
+    fun logButton(v: View) {
         updateText("log(")
     }
-    fun naturalLogBtn(v:View){
+
+    fun naturalLogButton(v: View) {
         updateText("ln(")
     }
-    fun absBtn(v:View){
+
+    fun absButton(v: View) {
         updateText("abs(")
     }
-    fun piBtn(v:View){
+
+    fun piNumberButton(v: View) {
         updateText("pi")
     }
-    fun eBtn(v:View){
+
+    fun eulerNumberButton(v: View) {
         updateText("e")
     }
-    fun sqrtBtn(v:View){
+
+    fun squareRootButton(v: View) {
         updateText("sqrt(")
     }
-    fun xSquaredBtn(v:View){
+
+    fun xSquaredButton(v: View) {
         updateText("^(2)")
     }
-    fun xPowerYBtn(v:View){
+
+    fun xPowerYButton(v: View) {
         updateText("^(")
     }
-    fun primeBtn(v:View){
-        updateText("isprc(")
+
+    fun isPrimeButton(v: View) {
+        updateText("is-prc(")
     }
 
-    fun backSpaceBtn(v:View){
+    fun backspaceButton(v: View) {
         val cursorPos = display.selectionStart
         val textLen = display.text.length
-        if (cursorPos != 0 && textLen != 0){
+        if (cursorPos != 0 && textLen != 0) {
             val selection = display.text as SpannableStringBuilder
-            selection.replace(cursorPos -1,cursorPos,"")
+            selection.replace(cursorPos - 1, cursorPos, "")
             display.text = selection
-            display.setSelection(cursorPos -1)
+            display.setSelection(cursorPos - 1)
         }
-
     }
-    fun rotateBtn(v:View){
 
-        requestedOrientation = if (isPortrait){
+    fun rotateButton(v: View) {
+        requestedOrientation = if (isPortrait) {
             ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-        }
-        else{
+        } else {
             ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
         }
         isPortrait = !isPortrait
     }
-
 }

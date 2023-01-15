@@ -1,4 +1,4 @@
-package com.malkinfo.scientifccalcultor
+package com.yigitkucuk.scientify
 
 import org.junit.Test
 
